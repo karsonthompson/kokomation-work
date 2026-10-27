@@ -15,7 +15,6 @@
   }
   html, body { height:100%; }
   body { font-family:'Inter',sans-serif; background:var(--panel); min-height:100vh; overflow:hidden; }
-  .demo-note { position:fixed; top:12px; left:12px; color:rgba(247,245,239,.65); font-size:12px; max-width:330px; line-height:1.5; z-index:20; }
   .popup { position:fixed; inset:0; display:flex; background:var(--panel); }
   .panel { flex:0 0 47%; max-width:620px; background:var(--panel); position:relative; z-index:2; display:flex; overflow-y:auto; }
   .photo { flex:1 1 auto; position:relative; min-width:0; background:var(--photo-bg); }
@@ -52,7 +51,6 @@
     .block { padding:30px 20px 96px; }
     .logo { font-size:18px; margin-bottom:6px; }
     .close { top:12px; right:16px; }
-    .demo-note { display:none; }
   }
 </style>
 <style>
@@ -68,7 +66,6 @@
 </style>
 </head>
 <body>
-<div class="demo-note">Concept demo: Latitude Outdoors popup redone in the Super Coffee split-panel format (Karson 2026-10-26): all copy on a solid brand panel, photo in its own column, claim, email, optional SMS, auto-applied offer. Live audit: their popup hides the amount behind a mystery quiz; the signup reveal proved the real offer is 10% off. This redo states the real 10% up front and auto applies it, no code to copy.</div>
 <div class="popup" id="popup">
   <div class="panel">
   <div class="block">
