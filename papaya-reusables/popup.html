@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papaya Reusables &mdash; &quot;Pick Your Pattern Vibe&quot; Popup Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cooper+Black:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Quicksand',sans-serif; background:#f9ecee;
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .popup {
+    width:920px; max-width:100%; background:#ffffff; border-radius:20px; overflow:hidden;
+    display:flex; box-shadow:0 40px 100px rgba(0,0,0,.55); position:relative; min-height:560px;
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .close { position:absolute; top:14px; right:18px; font-size:26px; color:#b07c85; cursor:pointer; z-index:5; line-height:1; opacity:.7; }
+  .close:hover { opacity:1; }
+  .left { flex:1; padding:54px 50px; display:flex; flex-direction:column; justify-content:center; }
+  .wordmark { display:flex; align-items:center; gap:10px; margin-bottom:26px; font-weight:800; letter-spacing:2px; font-size:13px; color:#3a2226; }
+  .wordmark img { height:30px; width:auto; }
+  .eyebrow { font-size:11px; letter-spacing:3.5px; color:#e57b7b; font-weight:700; margin-bottom:14px; }
+  h1 { font-family:'Cooper Black',serif; font-weight:800; font-size:44px; line-height:1.05; color:#3a2226; margin-bottom:14px; letter-spacing:.5px; }
+  h1 .hl { color:#e57b7b; }
+  .sub { font-size:15px; color:#b07c85; line-height:1.6; margin-bottom:24px; max-width:370px; font-weight:400; }
+  .offerchip { display:inline-block; background:#e57b7b; color:#ffffff; font-weight:800; font-size:13px; letter-spacing:1.5px; padding:9px 16px; border-radius:999px; margin-bottom:18px; }
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px; }
+  .opt {
+    border:2px solid rgba(128,128,128,.25); border-radius:12px; padding:16px 12px; cursor:pointer;
+    font-family:'Quicksand',sans-serif; font-size:14px; font-weight:600; color:#3a2226;
+    background:transparent; transition:all .15s; text-align:center;
+  }
+  .opt:hover { border-color:#e57b7b; transform:translateY(-2px); }
+  .opt small { display:block; font-weight:400; font-size:12px; color:#b07c85; margin-top:4px; }
+  .field {
+    width:100%; height:54px; border:2px solid rgba(128,128,128,.25); border-radius:12px; padding:0 18px;
+    font-size:15px; font-family:'Quicksand',sans-serif; background:rgba(128,128,128,.08); color:#3a2226; margin-bottom:12px; outline:none;
+  }
+  .field:focus { border-color:#e57b7b; }
+  .field::placeholder { color:#b07c85; }
+  .cta {
+    width:100%; height:56px; border:none; border-radius:12px; background:#e57b7b; color:#ffffff;
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:17px; letter-spacing:2px; cursor:pointer;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .cta:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.35); }
+  .skip { background:none; border:none; color:#b07c85; font-size:13px; margin-top:10px; cursor:pointer; font-family:'Quicksand',sans-serif; text-decoration:underline; }
+  .micro { font-size:12px; color:#b07c85; margin-top:14px; text-align:center; line-height:1.5; }
+  .fine { font-size:10.5px; color:#b07c85; margin-top:20px; line-height:1.5; opacity:.8; }
+  .err { font-size:12px; color:#e57b7b; margin:-4px 0 10px; display:none; }
+  .right {
+    flex:1; background:#3d1c22; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; min-height:560px;
+  }
+  .right::after { content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(229,123,123,.20), rgba(61,28,34,.88)); }
+  .giant {
+    position:absolute; font-family:'Cooper Black',serif; font-weight:800; font-size:96px;
+    color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.12); letter-spacing:6px;
+    white-space:nowrap; transform:rotate(-90deg); left:-6px; user-select:none; z-index:1;
+  }
+  .right img { position:relative; z-index:2; width:78%; border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,.5); }
+  .badge {
+    position:absolute; z-index:3; bottom:28px; right:28px; background:#e57b7b; color:#ffffff;
+    font-weight:700; font-size:14px; letter-spacing:1.5px;
+    padding:10px 18px; border-radius:999px; box-shadow:0 8px 20px rgba(0,0,0,.4);
+  }
+  .step { display:none; }
+  .step.active { display:flex; flex-direction:column; justify-content:center; height:100%; }
+  .success-check { width:72px; height:72px; border-radius:50%; background:#e57b7b; color:#ffffff; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; font-weight:700; }
+  .step h2 { font-family:'Cooper Black',serif; font-size:38px; font-weight:800; color:#3a2226; margin-bottom:12px; line-height:1.05; }
+  .step h2 .hl { color:#e57b7b; }
+  .step p { font-size:15px; color:#b07c85; line-height:1.6; max-width:360px; }
+  .codebox { margin-top:18px; border:2px dashed #e57b7b; border-radius:12px; padding:16px; text-align:center; font-size:22px; font-weight:800; letter-spacing:3px; color:#3a2226; }
+  .tapcard { margin-top:16px; border-radius:14px; background:rgba(128,128,128,.12); border:2px solid rgba(128,128,128,.25); padding:34px 20px; text-align:center; cursor:pointer; transition:all .2s; }
+  .tapcard:hover { border-color:#e57b7b; }
+  .tapcard .big { font-size:30px; font-weight:800; color:#e57b7b; letter-spacing:1px; }
+  .tapcard .tlabel { font-size:13px; color:#b07c85; margin-top:8px; letter-spacing:2px; font-weight:600; }
+  .proof { display:flex; align-items:center; gap:8px; margin-top:18px; font-size:13px; color:#b07c85; font-weight:600; }
+  .proof .dot { width:8px; height:8px; border-radius:50%; background:#22b573; }
+  @media (max-width:720px) {
+    .popup { flex-direction:column; }
+    .right { min-height:260px; order:-1; }
+    .giant { font-size:64px; transform:none; left:8px; top:8px; }
+    .left { padding:36px 28px; }
+    h1 { font-size:32px; }
+    .step h2 { font-size:30px; }
+    .opts { grid-template-columns:1fr 1fr; }
+  }
+</style>
+<style>
+#stepNav{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 12px;background:rgba(10,10,10,.96);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -4px 18px rgba(0,0,0,.4);font-family:inherit}
+#stepNav .sbtn{border:1px solid rgba(255,255,255,.2);background:#1c1c1c;color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer}
+#stepNav .sbtn:disabled{opacity:.35;cursor:default}
+#stepDots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+#stepDots .sdot{display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.14);background:#1c1c1c;border-radius:999px;padding:6px 10px;font-size:12px;cursor:pointer;color:#b6b6b6}
+#stepDots .sdot .n{display:inline-flex;width:20px;height:20px;border-radius:50%;background:#333;color:#fff;font-size:11px;font-weight:700;align-items:center;justify-content:center}
+#stepDots .sdot.on{border-color:#e57b7b;color:#fff}
+#stepDots .sdot.on .n{background:#e57b7b;color:#ffffff}
+body{padding-bottom:64px}
+@media(max-width:520px){#stepDots .sdot .l{display:none}#stepNav{gap:8px}}
+</style>
+</head>
+<body>
+
+<div class="popup">
+  <div class="close" onclick="document.querySelector('.popup').style.display='none'">&times;</div>
+  <div class="left">
+<div class="step active" id="step0">
+  <div class="eyebrow">PICK YOUR PATTERN VIBE</div>
+  <h1>You’ve got <span class="hl">10% off.</span><br>First, two questions.</h1>
+  <p class="sub">Two quick questions and we’ll match your pattern vibe — plus 10% off your first order for joining.</p>
+  <div><span class="offerchip">10% OFF YOUR FIRST ORDER</span></div>
+  <p class="sub" style="margin-bottom:14px;font-weight:600;color:#3a2226">What’s your pattern vibe? Finish the quiz and claim 10% off.</p>
+  <div class="opts"><button class="opt" onclick="show('step1')">Botanical &amp; Bold<small>blooming statement prints</small></button><button class="opt" onclick="show('step1')">Soft &amp; Sweet<small>dreamy pastel prints</small></button><button class="opt" onclick="show('step1')">Graphic &amp; Fun<small>playful pop prints</small></button><button class="opt" onclick="show('step1')">Classic &amp; Clean<small>timeless neutrals</small></button></div>
+  <button class="skip" onclick="show('step1')">Skip question &rarr;</button>
+</div>
+<div class="step" id="step1">
+  <div class="eyebrow">PICK YOUR PATTERN VIBE</div>
+  <h1>You’ve got <span class="hl">10% off.</span><br>First, two questions.</h1>
+  <p class="sub">Two quick questions and we’ll match your pattern vibe — plus 10% off your first order for joining.</p>
+  <div><span class="offerchip">10% OFF YOUR FIRST ORDER</span></div>
+  <p class="sub" style="margin-bottom:14px;font-weight:600;color:#3a2226">Where will it live?</p>
+  <div class="opts"><button class="opt" onclick="show('step2')">Kitchen Hero<small>everyday spills &amp; splashes</small></button><button class="opt" onclick="show('step2')">Bath &amp; Vanity<small>soft on skin</small></button><button class="opt" onclick="show('step2')">Gifting Pro<small>ready-to-gift bundles</small></button><button class="opt" onclick="show('step2')">Whole Home<small>every room, covered</small></button></div>
+  <button class="skip" onclick="show('step2')">Skip question &rarr;</button>
+</div>
+<div class="step" id="step2">
+  <div class="eyebrow">PICK YOUR PATTERN VIBE</div>
+  <h2>Your <span class="hl">10% off</span> is ready</h2>
+  <p>To claim your 10% off your first order, share your email — new patterns, drops, and offers.</p>
+  <div style="height:22px"></div>
+  <input class="field" id="email2" type="email" placeholder="Email address">
+  <div class="err" id="err2">Please enter a valid email address.</div>
+  <button class="cta" onclick="submitEmail('step3','email2','err2')">CLAIM MY 10% OFF</button>
+  <p class="micro">1 sheet replaces 17 rolls. Unsubscribe anytime.</p>
+</div>
+<div class="step" id="step3">
+  <div class="eyebrow">PICK YOUR PATTERN VIBE</div>
+  <h2>Spill alerts <span class="hl">by text?</span></h2>
+  <p>Optional — restock alerts and subscriber-only offers by text.</p>
+  <div style="height:22px"></div>
+  <input class="field" id="sms3" type="tel" placeholder="Phone number (optional)">
+  <button class="cta" onclick="submitSms('step4','sms3')">YES, TEXT ME</button>
+  <div style="text-align:center"><button class="skip" onclick="show('step4')">No thanks, email is fine</button></div>
+</div>
+<div class="step" id="step4">
+  <div class="success-check">&#10003;</div>
+  <h2>You’ve got <span class="hl">10% off</span></h2>
+  <p>Your pattern-vibe match and 10% off details are on their way to your inbox. Too cute not to save.</p>
+  
+  <p class="fine">10% off your first order. Details by email.</p>
+</div>
+  </div>
+  <div class="right">
+    <div class="giant">PATTERN</div>
+    <img src="data:image/png;base64,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" alt="Papaya Reusables">
+    <div class="badge">10% OFF</div>
+  </div>
+</div>
+<div id="stepNav">
+  <button class="sbtn" id="prevBtn" onclick="navPrev()">&larr; Prev</button>
+  <div id="stepDots"></div>
+  <button class="sbtn" id="nextBtn" onclick="navNext()">Next &rarr;</button>
+</div>
+<script>
+var steps = ["step0","step1","step2","step3","step4"];
+var cur = 0;
+function show(id){
+  document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  cur = steps.indexOf(id);
+  renderNav();
+  window.scrollTo(0,0);
+}
+function renderNav(){
+  var dots = document.getElementById('stepDots');
+  dots.innerHTML = '';
+  steps.forEach(function(id, i){
+    var b = document.createElement('button');
+    b.className = 'sdot' + (i === cur ? ' on' : '');
+    b.innerHTML = '<span class="n">' + (i+1) + '</span><span class="l">' + ["Vibe","Room","Email","SMS","Reveal"][i] + '</span>';
+    b.onclick = function(){ show(id); };
+    dots.appendChild(b);
+  });
+  document.getElementById('prevBtn').disabled = (cur <= 0);
+  document.getElementById('nextBtn').disabled = (cur >= steps.length - 1);
+}
+function navPrev(){ if(cur > 0) show(steps[cur-1]); }
+function navNext(){ if(cur < steps.length - 1) show(steps[cur+1]); }
+function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+function submitEmail(nextId, inputId, errId){
+  var v = document.getElementById(inputId).value.trim();
+  if(!validEmail(v)){ document.getElementById(errId).style.display = 'block'; return; }
+  document.getElementById(errId).style.display = 'none';
+  show(nextId);
+}
+function submitSms(nextId, inputId){
+  show(nextId);
+}
+function tapReveal(cardId){
+  var c = document.getElementById(cardId);
+  c.querySelector('.tlabel').style.display = 'none';
+  c.querySelector('.big').style.display = 'block';
+}
+window.onload = function(){ renderNav(); };
+</script>
+</body>
+</html>

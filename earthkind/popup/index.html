@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I redesigned EarthKind&#x27;s popup form | Kokomation</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:#0c1a2e; color:#f4efe8; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+  header { display:flex; justify-content:space-between; align-items:center; padding: 6px 0 22px; }
+  .brand { font-family: Arial, sans-serif; font-weight: 900; letter-spacing: 2px; font-size: 20px; color:#fff; }
+  .brand span { color:#ffc94d; }
+  .tag { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 1px; color:#9fb4cc; text-transform: uppercase; }
+  h1 { font-size: 36px; line-height: 1.15; margin: 8px 0 18px; }
+  h2 { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color:#ffc94d; margin: 40px 0 12px; }
+  .shot { border-radius: 12px; overflow: hidden; box-shadow: 0 14px 44px rgba(0,0,0,.5); }
+  .shot img { display:block; width:100%; }
+  .caption { text-align:center; font-family: Arial, sans-serif; font-size: 12px; color:#9fb4cc; margin-top: 10px; }
+  .openrow { text-align:center; margin-top: 20px; }
+  .openbtn { display:inline-block; background:#ffc94d; color:#0c1a2e; font-family: Arial, sans-serif; font-weight: 700; font-size: 15px; padding: 14px 30px; border-radius: 8px; text-decoration:none; }
+  ul { list-style: none; }
+  li { font-size: 16px; line-height: 1.55; padding: 10px 0 10px 26px; position: relative; border-bottom: 1px solid #1d2f47; color:#e8ecf2; }
+  li:before { content: "\2192"; position:absolute; left:0; color:#ffc94d; }
+  li b { color:#fff; }
+  .install { margin-top: 36px; background:#12263f; border:1px solid #1d2f47; border-radius: 12px; padding: 30px 28px; text-align:center; }
+  .install p { font-size: 19px; line-height: 1.5; color:#f4efe8; }
+  .install .sub2 { font-size: 15px; line-height: 1.55; color:#d8dee8; margin-top: 8px; }
+  .cta { text-align:center; margin-top: 26px; }
+  .btn { display:inline-block; background:#ffc94d; color:#0c1a2e; font-family: Arial, sans-serif; font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 8px; text-decoration:none; }
+  .newbadge { display:inline-block; background:#ffc94d; color:#0c1a2e; font-size:11px; letter-spacing:1px; padding:3px 9px; border-radius:999px; vertical-align:middle; margin-left:8px; }
+  .intro { font-size:17px; line-height:1.55; color:#e8ecf2; margin: 0 0 16px; }
+  .emailshot { max-width: 600px; margin: 0 auto; }
+  footer { margin-top: 34px; text-align:center; font-family: Arial, sans-serif; font-size: 12px; color:#5f748f; }
+  @media (max-width: 640px) { h1 { font-size: 28px; } }
+  .frame { border-radius: 12px; overflow: hidden; box-shadow: 0 14px 44px rgba(0,0,0,.5); background:#fff; }
+  .frame iframe { display:block; width:100%; border:0; }
+  .popupframe iframe { height: 720px; }
+  .emailframe { max-width: 640px; margin: 0 auto; }
+  .emailframe iframe { height: 2600px; }
+  p.stat { font-size: 17px; line-height: 1.6; color:#e8ecf2; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">KOKOMATION<span>.</span></div>
+    <div class="tag">Prepared for EarthKind</div>
+  </header>
+  <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:13px;"><a href="/earthkind/" style="color:#9fb4cc;text-decoration:none;">&larr; Everything I made for EarthKind</a></p>
+
+  <h1>I redesigned EarthKind&#x27;s popup form.</h1>
+
+  <h2>The new popup</h2>
+  <div class="frame popupframe"><iframe src="/earthkind/popup.html" title="The redesigned EarthKind popup form"></iframe></div>
+  <p class="caption">Step 1: the pest-fighting match. A welcome offer behind it.</p>
+  <div class="openrow"><a class="openbtn" href="/earthkind/popup.html">See the full popup design</a></div>
+
+  <h2>What I changed</h2>
+  <ul>
+    <li><b>No popup today.</b> EarthKind has no signup popup, so the traffic the site already gets leaves without ever joining the email list.</li>
+    <li><b>A match before the ask.</b> A pest-fighting match pick opens the flow, and the welcome offer is ready at the email step.</li>
+    <li><b>Email, then optional text.</b> The email step claims the offer, and protection tips by text are optional.</li>
+  </ul>
+
+  <h2>Why the signup rate matters</h2>
+  <p class="stat">The average popup signs up 2 to 3 of every 100 visitors. A strong one signs up 5 or more. On 10,000 visitors a month, that 2 point gap is 200 extra people in the welcome flow every month, hearing the offer while the visit is still fresh.</p>
+
+  <div class="install">
+    <p>I help brands make more with their email.</p>
+    <p class="sub2">Book a call for a free walkthrough in plugging this into your popup software.</p>
+    <div class="cta"><a class="btn" href="https://calendly.com/karson-kokomation/30min">Book a call</a></div>
+  </div>
+</div>
+</body>
+</html>
