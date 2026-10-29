@@ -30,21 +30,21 @@ canvas{position:absolute;inset:0;cursor:pointer;touch-action:none}
 <div class="step active" id="step1" style="background:#141414;color:#fff">
   <div class="panel" style="flex:1 1 100%;text-align:center;align-items:center;padding:40px 30px 34px">
     <div class="eyebrow" style="color:#b8b0c4">Celeb Luxury</div>
-    <h1>YOU'VE GOT <span style="color:#b8b0c4">15% OFF</span></h1>
-    <p>Your code is under the foil. Scratch to reveal it, then it is yours at checkout.</p>
+    <h1>YOU'VE GOT <span style="color:#b8b0c4">A MYSTERY OFFER</span></h1>
+    <p>Scratch the foil to reveal your mystery discount.</p>
     <div class="scratchwrap">
-      <div class="scratchunder"><div style="font-size:15px;letter-spacing:2px">YOUR CODE</div><div style="font-size:34px;font-weight:900;letter-spacing:4px">FIRSTORDER</div><div style="font-size:20px;font-weight:800">15% OFF</div></div>
+      <div class="scratchunder"><div style="font-size:15px;letter-spacing:2px">YOUR MYSTERY DISCOUNT</div><div style="font-size:34px;font-weight:900;letter-spacing:4px">15% OFF</div></div>
       <canvas id="foil" width="520" height="240"></canvas>
     </div>
     <button class="btn" id="scratchgo" style="background:#b8b0c4;color:#141414;display:none" onclick="go(2)">Claim My 15% Off</button>
-    <p class="micro" style="color:#fff">Drag or tap across the foil to scratch. New customers, 15% off at checkout with the revealed code.</p>
+    <p class="micro" style="color:#fff">Drag or tap across the foil to scratch. New customers only. Your code is sent by email once you claim your discount.</p>
   </div>
 </div>
 <div class="step" id="step2">
   <div class="photo"></div>
   <div class="panel">
     <div class="eyebrow" style="color:#141414">Step 2: Claim</div>
-    <h2>Where do we send your 15% off?</h2>
+    <h2>Where do we send your 15% off code?</h2>
     <input id="lemail" type="email" placeholder="Email address">
     <button class="btn" style="background:#141414;color:#fff" onclick="needEmail('lemail',3)">Continue</button>
     <p class="micro">By submitting your email, you agree to receiving promotional content. You can unsubscribe at any time.</p>
@@ -54,9 +54,9 @@ canvas{position:absolute;inset:0;cursor:pointer;touch-action:none}
   <div class="photo"></div>
   <div class="panel">
     <div class="eyebrow" style="color:#141414">Optional</div>
-    <h2>Want your 15% off by text too?</h2>
+    <h2>Want your 15% off code by text too?</h2>
     <input id="lphone" type="tel" placeholder="Mobile number (optional)">
-    <button class="btn" style="background:#141414;color:#fff" onclick="go(4)">Text Me My Discount</button>
+    <button class="btn" style="background:#141414;color:#fff" onclick="go(4)">Text Me My Code</button>
     <button class="skip" onclick="go(4)">No thanks, activate my 15% off</button>
     <p class="micro">Optional step. Skip it and your 15% off still activates. Message and data rates may apply; you can opt out at any time.</p>
   </div>
@@ -65,8 +65,8 @@ canvas{position:absolute;inset:0;cursor:pointer;touch-action:none}
   <div class="panel big" style="flex:1 1 100%;color:#141414">
     <div class="eyebrow">Celeb Luxury</div>
     <div class="off">15% OFF ACTIVATED</div>
-    <div class="code">FIRSTORDER</div>
-    <p>Use your code at checkout. Color-depositing care that repairs while it refreshes.</p>
+    <div class="code">Your code is on its way.</div>
+    <p>We just emailed your 15% off code. Check your inbox before you check out.</p>
     <button class="btn" style="background:#141414;color:#fff">Shop Now</button>
   </div>
 </div></div><script>
@@ -76,7 +76,7 @@ function needEmail(id,n){var v=document.getElementById(id).value;if(v.indexOf('@
 var cv=document.getElementById('foil'),ctx=cv.getContext('2d'),down=false,revealed=false;
 ctx.fillStyle='#b8b0c4';ctx.fillRect(0,0,520,240);
 ctx.fillStyle='#141414';ctx.font='900 30px Arial';ctx.textAlign='center';ctx.fillText('SCRATCH HERE',260,112);
-ctx.font='700 15px Arial';ctx.fillText('YOUR 15% OFF CODE IS UNDER THE FOIL',260,142);
+ctx.font='700 15px Arial';ctx.fillText('YOUR MYSTERY DISCOUNT IS UNDER THE FOIL',260,142);
 function erase(e){var r=cv.getBoundingClientRect();var x=(e.clientX-r.left)*(520/r.width),y=(e.clientY-r.top)*(240/r.height);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,30,0,7);ctx.fill();check();}
 function check(){if(revealed)return;var d=ctx.getImageData(0,0,520,240).data,clear=0,total=0;for(var i=3;i<d.length;i+=160){total++;if(d[i]===0)clear++;}if(clear/total>0.35){revealed=true;cv.style.transition='opacity .4s';cv.style.opacity='0';cv.style.pointerEvents='none';document.getElementById('scratchgo').style.display='inline-block';}}
 cv.addEventListener('pointerdown',function(e){down=true;erase(e);});
