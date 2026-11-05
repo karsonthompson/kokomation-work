@@ -60,6 +60,11 @@ h2 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: upp
 .shot.beforeshot { max-width: 380px; margin: 0 auto; }
 .compare .shot.beforeshot { max-width: none; }
 .emailshot { max-width: 600px; margin: 0 auto; }
+.emailpreview { display: block; position: relative; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.emailpreview img { width: 100%; height: auto; }
+.emailpreview:hover { transform: translateY(-2px); box-shadow: 0 22px 60px rgba(0,0,0,.6); }
+.emailpreview.is-cut::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 200px; background: linear-gradient(to bottom, rgba(11,22,40,0), rgba(11,22,40,.94)); pointer-events: none; }
+.emailpreview .peek { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 1; white-space: nowrap; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
 .caption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
 .openrow { text-align: center; margin-top: 20px; }
 
